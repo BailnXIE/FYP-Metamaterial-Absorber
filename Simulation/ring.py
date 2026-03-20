@@ -13,7 +13,7 @@ import csv
 
 
 # all the data and images saved in the same file
-OUTPUT_DIR = "/Volumes/tremendous/FYP_data/rings" #Create a path for data saving
+OUTPUT_DIR = "/Volumes/tremendous/FYP_data/rings" #please remember to customize the file directories
 
 # =============================================================================
 # Material Definition
