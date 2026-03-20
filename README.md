@@ -8,6 +8,8 @@ This repository contains the source code and simulation scripts for my Final Yea
 ## Project Overview
 This project proposes an efficient, broadband plasmonic metasurface absorber based on manganese (Mn). To overcome the massive computational cost of traditional numerical inverse design, a custom deep learning framework was implemented to map metasurface geometric parameters to their corresponding absorption spectra.
 
+> ⚠️ **Important Note on File Paths:** > Before running the code, please remember to customize the file directories in the scripts. You will need to update the dataset input paths and model save paths (especially in LD scripts for the materials definition) to match your local environment.
+
 ## Repository Structure
 * `ring_regression_study.py` : Defines the *AbsorberNetEnhanced* architecture (incorporating Residual Blocks and SiLU activation) to train the model from data collected in `ring_data.csv`
 * 
