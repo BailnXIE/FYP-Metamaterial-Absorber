@@ -71,18 +71,6 @@ def ring_run_simulation(current_resolution, min_period, max_period, t_r, t_s, t_
     # 指定波長：額外繪製一張電場分布圖；設為 None 則不繪製
     custom_efield_wavelength = 1.45  # (μm)，需在 [min_wavelength, max_wavelength] 內
 
-    # # 定義幾何參數
-    # r_1 = 0.05
-    # r_2 = 0.075
-    # r_3 = 0.1
-    # l_1 = 0.04
-    # l_2 = 0.02078
-    # l_3 = 0.02
-    # l_4 = 0.025
-    # t_r = 0.09#0.015
-    # t_s = 0.055
-    # t_g = 0.18 #0.1
-
     #幾何高度計算
     Height_geometry = t_r + t_s + t_g
     pattern_height = t_r  
@@ -126,50 +114,7 @@ def ring_run_simulation(current_resolution, min_period, max_period, t_r, t_s, t_
             )
         )
         return objs
-    
-    # def target_ring(radius1, radius2, radius3, pattern_height):
-    #     objs = []
-    #     #大圓R3
-    #     objs.append(
-    #         mp.Cylinder(
-    #             radius=radius3,          # (必填) 圓柱的半徑
-    #             height=pattern_height,          # (必填) 圓柱的長度/高度
-    #             axis=mp.Vector3(1,0,0),# (選填) 圓柱朝向，預設是 Z 軸 (0,0,1)
-    #             center=mp.Vector3(0,0,0), # (選填) 中心點位置，預設是 (0,0,0)
-    #             material=pattern_material         # (必填) 材料
-    #         )
-    #     )
-    #     #中間透明圓挖空R2
-    #     objs.append(
-    #         mp.Cylinder(
-    #             radius=radius2,          # (必填) 圓柱的半徑
-    #             height=pattern_height,          # (必填) 圓柱的長度/高度
-    #             axis=mp.Vector3(1,0,0),# (選填) 圓柱朝向，預設是 Z 軸 (0,0,1)
-    #             center=mp.Vector3(0,0,0), # (選填) 中心點位置，預設是 (0,0,0)
-    #             material=Air         # (必填) 材料
-    #         ))
-    #     #小圓R
-    #     objs.append(
-    #         mp.Cylinder(
-    #             radius=radius1,          # (必填) 圓柱的半徑
-    #             height=pattern_height,          # (必填) 圓柱的長度/高度
-    #             axis=mp.Vector3(1,0,0),# (選填) 圓柱朝向，預設是 Z 軸 (0,0,1)
-    #             center=mp.Vector3(0,0,0), # (選填) 中心點位置，預設是 (0,0,0)
-    #             material=pattern_material         # (必填) 材料
-    #         ))
-    #     return objs
-   
-    # def target_cubs(length, width, heigt, cy, cz):
-    #     objs = []
-    #     #spcaer
-    #     objs.append(
-    #         mp.Block(
-    #             material=pattern_material,
-    #             size=mp.Vector3(heigt, length, width),
-    #             center=mp.Vector3(0, cy, cz),
-    #         )
-    #     )
-    #     return objs
+
    
 
     def disk_geometry(radius,material, pattern_height):
@@ -533,7 +478,7 @@ def ring_run_simulation(current_resolution, min_period, max_period, t_r, t_s, t_
     plt.xlim(min_wavelength, max_wavelength)
     plt.tight_layout()
     #保存
-    output_folder = "/Users/xiebailin/meep_projects/FYP/fyp_semB/data_graph"
+    output_folder = "./data_graph"
     # 確保文件夾存在，如果不存就自動建立一個
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -560,24 +505,12 @@ def ring_run_simulation(current_resolution, min_period, max_period, t_r, t_s, t_
     # YZ結構截面圖 (Y=0平面，顯示結構和監測器)
     sim.plot2D(
         output_plane=mp.Volume(center=mp.Vector3(0, 0, 0), size=mp.Vector3(0, sy, sz)),
-        # fields = None,
-        # plot_eps_flag = True,
-        # plot_sources=True,   # 顯示光源 (Source)
-        # plot_monitors=True,  # 顯示監視器 (Monitor)
-        # plot_boundaries=True,# 顯示邊界 (PML 會顯示為邊緣的陰影區)
-
-        # # 讓結構顯示不同的顏色
-        # eps_parameters={'cmap': 'bone', 'interpolation': 'none', 'alpha': 1.0},
-        # # 讓監視器顯示得更明顯 (綠色半透明)
-        # # monitor_parameters={'facecolor': 'green', 'alpha': 0.4, 'edgecolor': 'white', 'linewidth': 1.5},
-        # # 讓光源顯示得更明顯 (紅色半透明)
-        # source_parameters={'facecolor': 'red', 'alpha': 0.6, 'edgecolor': 'black', 'linewidth': 1.5}
     )
     plt.title("YZ Cross-section After Simulation (Structure)", fontsize=12, fontweight="bold")
     plt.xlabel("Y (μm)", fontsize=11)
     plt.ylabel("Z (μm)", fontsize=11)
     plt.tight_layout()
-    output_folder = "/Users/xiebailin/meep_projects/FYP/fyp_semB/data_graph"
+    output_folder = "./data_graph"
     # 確保文件夾存在，如果不存就自動建立一個
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -671,7 +604,7 @@ def ring_run_simulation(current_resolution, min_period, max_period, t_r, t_s, t_
                  ax.set_xlim(xlim_range)
             
             # 保存
-            output_folder = "/Users/xiebailin/meep_projects/FYP/fyp_semB/data_graph"
+            output_folder = "./data_graph"
             if not os.path.exists(output_folder): os.makedirs(output_folder)
             
             save_path = os.path.join(output_folder, filename)
@@ -823,7 +756,7 @@ def ring_run_simulation(current_resolution, min_period, max_period, t_r, t_s, t_
     # 保存 Absorption 數據 (CSV)
     # =============================================================================
     # 1. 建立專門存放數據的文件夾
-    data_folder = "/Users/xiebailin/meep_projects/FYP/fyp_semB/data"
+    data_folder = "./data"
 
     # 如果文件夾不存在，就建立它
     if not os.path.exists(data_folder):
