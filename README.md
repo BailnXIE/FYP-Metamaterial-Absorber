@@ -29,5 +29,7 @@ This project proposes an efficient, broadband plasmonic metasurface absorber bas
 * ## Installation & Setup
 Before running the code in this repository, you are suggest to install the required Python packages.
 
+If you run into any execution issues, it is highly recommended to use AI-assisted coding tools (such as **[Cursor](https://cursor.sh/)**, ChatGPT, or GitHub Copilot) to help debug and adapt the code to your specific operating system. 
+
 ## Author
 * **XIE Bailin** - *BSc in Physics, City University of Hong Kong*
