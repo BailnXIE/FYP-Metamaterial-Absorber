@@ -500,7 +500,7 @@ for epoch in range(epochs):
     # Early stopping mechanism
     if avg_val_loss < best_loss:
         best_loss = avg_val_loss
-        model_filename = f'/Users/xiebailin/meep_projects/pytorch/FYP/best_ring_{LR_SCHEDULER_TYPE}.pth'
+        model_filename = f'./best_ring_{LR_SCHEDULER_TYPE}.pth'
         torch.save(model.state_dict(), model_filename)
         patience_counter = 0
     else:
@@ -568,7 +568,7 @@ plt.grid(True, alpha=0.3)
 print("\n--- Running inverse optimization (with strict physical constraints) ---")
 
 # Load the best model
-model_filename = f'/Users/xiebailin/meep_projects/pytorch/FYP/best_ring_{LR_SCHEDULER_TYPE}.pth'
+model_filename = f'./best_ring_{LR_SCHEDULER_TYPE}.pth'
 # if not os.path.exists(model_filename):
 #     raise FileNotFoundError(
 #         f"Model file not found: {model_filename}\n"
@@ -1118,7 +1118,7 @@ print(f"✅ t_r, t_s > 0: {p_rounded['t_r'] > 0 and p_rounded['t_s'] > 0}; t_g f
 
 # Save the training curves plot
 plt.tight_layout()
-training_plot_filename = f'/Users/xiebailin/meep_projects/FYP/fyp_semB/prediction/training_history_ring_{LR_SCHEDULER_TYPE}.png'
+training_plot_filename = f'./training_history_ring_{LR_SCHEDULER_TYPE}.png'
 plt.savefig(training_plot_filename, dpi=150)
 print(f"\n📊 Training curves plot saved to: training_history_ring_{LR_SCHEDULER_TYPE}.png")
 plt.show()
@@ -1184,7 +1184,7 @@ plt.xlim(WL_RANGE_MIN, WL_RANGE_MAX)
 plt.grid(True, alpha=0.3, zorder=0)
 plt.legend(loc='best', fontsize=9)
 plt.tight_layout()
-output_filename = f'/Users/xiebailin/meep_projects/FYP/fyp_semB/prediction/optimization_result_ring_{LR_SCHEDULER_TYPE}.png'
+output_filename = f'./optimization_result_ring_{LR_SCHEDULER_TYPE}.png'
 plt.savefig(output_filename, dpi=150)
 print(f"📊 Optimization result plot saved to: optimization_result_ring_{LR_SCHEDULER_TYPE}.png")
 plt.show()
@@ -1213,7 +1213,7 @@ spectrum_df = pd.DataFrame({
 })
 
 # Use a fixed filename and overwrite the old file every time
-csv_filename = f'/Users/xiebailin/meep_projects/FYP/fyp_semB/prediction/predicted_spectrum_ring.csv'
+csv_filename = f'./predicted_spectrum_ring.csv'
 
 # Save the CSV file (using scientific notation; consistent with the example file)
 spectrum_df.to_csv(csv_filename, index=False, float_format='%.6e')
