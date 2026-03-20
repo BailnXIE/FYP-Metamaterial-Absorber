@@ -20,9 +20,12 @@ This project proposes an efficient, broadband plasmonic metasurface absorber bas
 * `Lorentz_Drude.py` : An example from MEEP library which can produce the frequency, gamma, and sigma parameters used for "E_susceptibilities" material definition. Refractive csv data can be found from https://refractiveindex.info.
 
 ## Key Technologies Used
-* **Electromagnetic Simulation:** MEEP (FDTD method)
-* **Deep Learning:** PyTorch
-* **Data Processing:** NumPy, SciPy, Matplotlib
+* **Electromagnetic Simulation:** MEEP (FDTD method). Note that MEEP is not available via standard pip and must be installed via Conda. Please follow the official MEEP installation guide. https://meep.readthedocs.io/en/latest/Installation/
+* **Deep Learning:** PyTorch, Scikit-Learn, Pandas, NumPy
+* **Visualization:** Matplotlib
+
+* ## Installation & Setup
+Before running the code in this repository, you are suggest to need to install the required Python packages.
 
 ## Author
 * **XIE Bailin** - *BSc in Physics, City University of Hong Kong*
